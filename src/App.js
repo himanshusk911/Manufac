@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { MantineProvider } from "@mantine/core";
+import CropProduction from "./components/CropProduction";
+import AverageYieldCultivation from "./components/AverageYieldCultivation";
+import styles from "./styles/tableStyle.module.css";
 
 function App() {
+  /*We have to wrap our componets inside MantineComponent  ,if we want to use Mantine features*/
+  //CropProduction component shows min and max crop per year
+  //AverageYieldCultivation components show average yield and cultivation
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <MantineProvider>
+        <CropProduction />
+        <AverageYieldCultivation />
+      </MantineProvider>
     </div>
   );
 }
